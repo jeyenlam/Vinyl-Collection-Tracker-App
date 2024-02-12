@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinyl Collection Tracker</title>
+  <link rel='stylesheet' href={{ url_for('static', filename='index.css') }}/>
+</head>
+<body>
+  <nav>
+    <div class="nav-items">
+      <ul>
+        <li><a id='login' href='/login'>login</a></li>
+        <li><a id='home' href='/'>home</a></li>
+      </ul> 
+    </div>
+  </nav>
+  {% block content%}
+
+  {% endblock %}
+
+  
+</body>
+</html>
