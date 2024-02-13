@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {%block content%}
 <h1>This is the homepage</h1>
+{% if user %}
+  <h2>Welcome back, {{ user['username'] }}</h2>
+  <form method='POST' action='{{ url_for('auth.logout') }}'>
+    <button type='submit'>Logout</button>
+  </form>
+{% else %}
+  <p>You are not logged in.</p>
+{% endif %}
 {% endblock %}
