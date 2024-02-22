@@ -13,6 +13,7 @@ def create_app():
   
   from .views import views
   from .auth import auth
+  # from .discogs_auth_manager import DiscogsAuthManager
   
   app.register_blueprint(views, url_prefix ='/')
   app.register_blueprint(auth, url_prefix='/')
