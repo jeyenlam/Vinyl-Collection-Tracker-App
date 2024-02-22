@@ -4,21 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vinyl Collection Tracker</title>
+  <link rel="icon" href="{{ url_for('static', filename='vinyl.png') }}" type="image/x-icon">
   <link rel='stylesheet' href={{ url_for('static', filename='index.css') }}/>
 </head>
 <body>
-  <nav>
-    <div class="nav-items">
-      <ul>
-        <li><a id='login' href='/login'>login</a></li>
-        <li><a id='home' href='/home'>home</a></li>
-      </ul> 
-    </div>
-  </nav>
-  {% block content%}
-
-  {% endblock %}
-
   
+  <nav>
+    {% if user %}
+      <div class="nav-items">
+        <ul>
+          <li><a id='home' href='/home'>home</a></li>
+        </ul> 
+      </div>
+    {% else %}
+      <div class="nav-items">
+        <ul>
+          <li><a id='login' href='/login'>login</a></li>
+        </ul> 
+      </div>
+    {% endif %}
+  </nav>
+
+  <div class='content'>
+    {% block content%}
+
+    {% endblock %}
+  </div>
+
+  <script>
+    {% if discogs_data is defined %}
+      console.log({{ discogs_data | tojson }});
+    {% else %}
+      console.log("discogs_data is not defined");
+    {% endif %}
+  </script>
+
 </body>
+
 </html>

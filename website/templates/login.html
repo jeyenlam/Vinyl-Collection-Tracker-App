@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {%block content%}
-<h1>This is the login page</h1>
+{% if user %}
+<h1>You're logged in.</h1>
+{% endif %}
+<h1>You have not logged in yet!</h1>
+<p>Log in the see the homepage</p>
 <form method='POST'>
   <button type='submit'>Login Through Discog</button>
 </form>
