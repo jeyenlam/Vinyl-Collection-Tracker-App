@@ -1,31 +1,30 @@
 {% extends "base.html" %}
 
-
 {%block content%} 
 
-<h1>This is the homepage</h1>
-{% if user %}
-  <h2>Welcome back, {{ user['username'] }}</h2>
-  <form method='POST' action='{{ url_for('auth.logout') }}'>
-    <button type='submit'>Logout</button>
-  </form>
-  <div>
-    {% if discogs_data %}
-      {% for vinyl in discogs_data %}
-        <div class='vinyl-container'>
-          <h3>{{vinyl['title']}}</h3>
-          <p>{{vinyl['artist']}}</p>
-          <p>{{vinyl['year']}}</p>
-          <img alt='thumb' src="{{vinyl['thumb']}}" />
-        </div>
-        
-      {% endfor %}
-    {% endif %}
-  </div>
+  {% if user %}
+    <div class='header'>
+      <h2>Welcome back, {{ user['username'] }}</h2>
+      <form method='POST' action='{{ url_for('auth.logout') }}'>
+        <button type='submit'>Logout</button>
+      </form>
+    </div>
+    <div>
+      {% if discogs_data %}
+        {% for vinyl in discogs_data %}
+          <div class='vinyl-container'>
+            <h3>{{vinyl['title']}}</h3>
+            <p>{{vinyl['artist']}}</p>
+            <p>{{vinyl['year']}}</p>
+            <img alt='thumb' src="{{vinyl['thumb']}}" />
+          </div>
 
+        {% endfor %}
+      {% endif %}
+    </div>
 
-{% else %}
-  <p>You are not logged in.</p>
-{% endif %}
+  {% else %}
+    <p>You are not logged in.</p>
+  {% endif %}
 
 {% endblock %}
