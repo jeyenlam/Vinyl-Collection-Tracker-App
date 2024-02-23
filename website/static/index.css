@@ -29,53 +29,73 @@ ul {
 #login {
   position: fixed;
   list-style: none;
-  top: 30px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
+  top: 30px; 
+  right: 25px; 
   background-color: #469C33; 
-  color: black; /* Text color */
-  padding: 10px 20px; /* Adjust padding to fit your content */
+  color: black; 
+  padding: 10px 20px; 
   border: none;
   border-radius: 5px;
-  text-decoration: none; /* Remove underline from link */
-  font-size: 16px; /* Adjust font size */
+  text-decoration: none; 
+  font-size: 16px; 
 }
 
 #login:hover {
-  background-color: #89339c; /* Darker blue on hover */
+  background-color: #89339c; 
 }
 
 #home {
   position: fixed;
   list-style: none;
-  top: 30px; /* Adjust as needed */
-  right: 105px; /* Adjust as needed */
+  top: 30px; 
+  right: 115px;
   background-color: #469C33; 
-  color: black; /* Text color */
-  padding: 10px 20px; /* Adjust padding to fit your content */
+  color: black; 
+  padding: 10px 20px; 
   border: none;
   border-radius: 5px;
-  text-decoration: none; /* Remove underline from link */
-  font-size: 16px; /* Adjust font size */
+  text-decoration: none; 
+  font-size: 16px; 
 }
 
 #home:hover {
-  background-color: #89339c; /* Darker blue on hover */
+  background-color: #89339c; 
 }
 
 #logout {
   position: fixed;
-  list-style: none;
-  top: 30px; /* Adjust as needed */
-  right: 195px; /* Adjust as needed */
+  list-style: none; 
+  top: 30px; 
+  right: 25px; 
   background-color: #469C33; 
-  color: black; /* Text color */
-  padding: 13px 20px; /* Adjust padding to fit your content */
+  color: black; 
+  padding: 13px 20px; 
   border: none;
   border-radius: 5px;
-  text-decoration: none; /* Remove underline from link */
-  font-size: 16px; /* Adjust font size */
+  text-decoration: none; 
+  font-size: 16px; 
 }
 
 #logout:hover {
-  background-color: #89339c; /* Darker blue on hover */
+  background-color: #89339c; 
 }
+
+.vinyls {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #d9d9d9;
+  color: #33599c;
+}
+
+.vinyl-container {
+  width: calc(25% - 20px); 
+  margin: 10px; 
+  box-sizing: border-box; /
+}
+
+.vinyl-container img {
+  max-width: 100%; 
+  height: auto; 
+  align-items: center;
+}
+

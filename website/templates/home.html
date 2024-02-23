@@ -6,10 +6,10 @@
     <div class='header'>
       <h2>Welcome back, {{ user['username'] }}</h2>
       <form method='POST' action='{{ url_for('auth.logout') }}'>
-        <button type='submit'>Logout</button>
+        <button type='submit' id="logout">logout</button>
       </form>
     </div>
-    <div>
+    <div class="vinyls">
       {% if discogs_data %}
         {% for vinyl in discogs_data %}
           <div class='vinyl-container'>
