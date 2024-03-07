@@ -22,15 +22,18 @@ ul {
   justify-content: space-between;
   align-items: center;
   background-color: #d9d9d9;
+  border: solid;
+  border-radius: 5px;
+  border-color: #89339c;
   margin: 5px;
   padding: 10px 1%;
 }
 
 #login {
-  position: fixed;
+  position: relative;
   list-style: none;
-  top: 30px; 
-  right: 25px; 
+  top: -16.85mm;
+  left: 87%; 
   background-color: #469C33; 
   color: black; 
   padding: 10px 20px; 
@@ -45,10 +48,10 @@ ul {
 }
 
 #home {
-  position: fixed;
+  position: relative;
   list-style: none;
-  top: 30px; 
-  right: 115px;
+  top: 7mm;
+  left: 93%;
   background-color: #469C33; 
   color: black; 
   padding: 10px 20px; 
@@ -63,13 +66,13 @@ ul {
 }
 
 #logout {
-  position: fixed;
-  list-style: none; 
-  top: 30px; 
-  right: 25px; 
+  position: relative;
+  list-style: none;
+  top: -17mm;
+  left: 87%; 
   background-color: #469C33; 
   color: black; 
-  padding: 13px 20px; 
+  padding: 10px 20px; 
   border: none;
   border-radius: 5px;
   text-decoration: none; 
@@ -80,11 +83,32 @@ ul {
   background-color: #89339c; 
 }
 
+#discog_login {
+  position: relative;
+  list-style: none;
+  bottom: 25mm;
+  left: 84%; 
+  background-color: #469C33; 
+  color: black; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; 
+  font-size: 16px; 
+}
+
+#discog_login:hover {
+  background-color: #89339c; 
+}
 .vinyls {
   display: flex;
   flex-wrap: wrap;
   background-color: #d9d9d9;
   color: #33599c;
+  border-style: solid;
+  border-radius: 1%;
+  border-color: #33599c;
+  
 }
 
 .vinyl-container {
