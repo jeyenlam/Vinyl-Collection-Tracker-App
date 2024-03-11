@@ -19,5 +19,22 @@ class OAuthQueries():
     
     return random_vinyls_list
   
+  def get_user_collections(self, user):
+    collections = {}
+
+    url = f'https://api.discogs.com/users/{user}/collection/folders'
+    folders = self.discogs_oauth.get(url).json()
+    print(folders)
+
+    for folder in folders['folders']:
+      folder_id = folder['id']
+      url = f'https://api.discogs.com/users/{user}/collection/folders/{folder_id}/releases'
+      response = self.discogs_oauth.get(url).json()
+      name = folder['name']
+      if len(response['releases']) > 0 and name != 'Uncategorized':
+        collections[name] = response['releases']
+    
+    return collections
+  
     
     

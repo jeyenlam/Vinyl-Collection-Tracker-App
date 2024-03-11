@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{%block content%} 
+
+  {% if user %}
+    <div class='header'>
+      <h2> {{user['username']}} explore all of your saved collections!</h2>
+      <form method='POST' action='{{ url_for('auth.logout') }}'>
+        <button type='submit' id="logout">logout</button>
+      </form>
+    </div>
+   
+    <div class="vinyls">
+        <div class="folders">
+        {% if discogs_data %}
+        {% for folder_name, collections in discogs_data.items() %}
+        <h2>{{ folder_name }}</h2>
+        <div class="collection-container">
+            {% for collection in collections %}
+                <div class='album-container'>
+                    <h3>{{ collection['basic_information']['title'] }}</h3>
+                    <p>{{ collection['basic_information']['artists'][0]['name'] }}</p>
+                    <p>{{ collection['basic_information']['year'] }}</p>
+                    <img alt='thumb' src="{{ collection['basic_information']['thumb'] }}" />
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+        {% else %}
+        <p>You have no saved collections.</p>
+        {% endif %}
+      </div>
+    </div>
+
+  {% else %}
+    <p>You are not logged in.</p>
+  {% endif %}
+
+{% endblock %}
