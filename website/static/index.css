@@ -29,90 +29,68 @@ ul {
   padding: 10px 1%;
 }
 
-#login {
-  position: relative;
-  list-style: none;
-  top: -16.85mm;
-  left: 87%; 
-  background-color: #469C33; 
-  color: black; 
-  padding: 10px 20px; 
-  border: none;
+.nav-button {
+  position: static;
+  top: auto;
+  right: inherit;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #469C33;
+  color: black;
+  text-align: center;
+  text-decoration: none;
   border-radius: 5px;
-  text-decoration: none; 
-  font-size: 16px; 
+  transition: background-color 0.3s;
 }
 
-#login:hover {
-  background-color: #89339c; 
+.nav-button:hover {
+  background-color: #89339c;
 }
 
-#home {
-  position: relative;
+.nav-items ul {
   list-style: none;
-  top: 7mm;
-  left: 93%;
-  background-color: #469C33; 
-  color: black; 
-  padding: 10px 20px; 
-  border: none;
-  border-radius: 5px;
-  text-decoration: none; 
-  font-size: 16px; 
-}
-
-#home:hover {
-  background-color: #89339c; 
+  display: flex;
+  gap: 10px; 
+  margin: 0;
+  padding: 0;
+  position: absolute; 
+  top: 50px; 
+  right: 50px; 
+  z-index: 9999;
 }
 
 #logout {
-  position: relative;
+  position: absolute;
   list-style: none;
-  top: -17mm;
-  left: 87%; 
+  top: 6.555%;
+  right: 16.2%; 
   background-color: #469C33; 
   color: black; 
-  padding: 10px 20px; 
+  padding: 12.5px 20px; 
   border: none;
   border-radius: 5px;
   text-decoration: none; 
   font-size: 16px; 
+  z-index: 9999;
 }
 
 #logout:hover {
   background-color: #89339c; 
 }
 
-#profile {
-  position: relative;
-  list-style: none;
-  top: 10%;
-  left: 78%;
-  background-color: #469C33; 
-  color: black; 
-  padding: 10px 20px; 
-  border: none;
-  border-radius: 5px;
-  text-decoration: none; 
-  font-size: 16px; 
-}
-
-#profile:hover {
-  background-color: #89339c; 
-}
-
 #discog_login {
-  position: relative;
+  position: absolute;
   list-style: none;
-  bottom: 25mm;
-  left: 84%; 
+  top: 6.5%;
+  right: 3%; 
   background-color: #469C33; 
   color: black; 
-  padding: 10px 20px; 
+  padding: 12px 25px; 
   border: none;
   border-radius: 5px;
   text-decoration: none; 
-  font-size: 16px; 
+  font-size: 18px; 
+  z-index: 9999;
 }
 
 #discog_login:hover {
