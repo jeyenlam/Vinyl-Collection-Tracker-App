@@ -83,6 +83,24 @@ ul {
   background-color: #89339c; 
 }
 
+#profile {
+  position: relative;
+  list-style: none;
+  top: 10%;
+  left: 78%;
+  background-color: #469C33; 
+  color: black; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 5px;
+  text-decoration: none; 
+  font-size: 16px; 
+}
+
+#profile:hover {
+  background-color: #89339c; 
+}
+
 #discog_login {
   position: relative;
   list-style: none;
