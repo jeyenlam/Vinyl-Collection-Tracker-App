@@ -1,18 +1,27 @@
+# Import necessary modules and libraries
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash, current_app
 from requests_oauthlib import OAuth1Session
 
+# Create a Blueprint named 'auth'
 auth = Blueprint('auth', __name__)
 
+# Define the URLs for Discogs OAuth flow
 request_token_url = "https://api.discogs.com/oauth/request_token"
 authorize_url = "https://www.discogs.com/oauth/authorize"
 access_token_url = "https://api.discogs.com/oauth/access_token"
 
-
+# Route for user login
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+  """
+    Handle user login using Discogs OAuth authentication.
+    
+    Returns:
+    - GET: Renders the login page.
+    - POST: Initiates the OAuth flow and redirects the user to Discogs for authorization.
+  """
   
   # Step 1. Obtain the consumer key and consumer secret from .env
-  
   discogs_oauth = OAuth1Session(
     client_key = current_app.config['DISCOGS_CONSUMER_KEY'],
     client_secret= current_app.config['DISCOGS_CONSUMER_SECRET'],
@@ -38,6 +47,12 @@ def login():
 
 @auth.route('/callback')
 def callback():
+  """
+    Handle OAuth callback from Discogs after user authorization.
+    
+    Returns:
+    - Redirects the user to the home page upon successful authentication.
+  """
   
   request_token = session.get('request_token')
   oauth_verifier = request.args.get('oauth_verifier')
@@ -74,5 +89,11 @@ def callback():
     
 @auth.route('/logout', methods=['GET', 'POST'])
 def logout():
+  """
+    Handle user logout by clearing the session data.
+    
+    Returns:
+    - Redirects the user to the login page after logout.
+  """
   session.clear()
   return redirect(url_for('auth.login'))
