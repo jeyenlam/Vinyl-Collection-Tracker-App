@@ -100,4 +100,5 @@ class OAuthQueries():
       name = folder['name']
       if len(response['releases']) > 0 and name != 'Uncategorized':
         collections[name] = response['releases']
+        
     return collections
