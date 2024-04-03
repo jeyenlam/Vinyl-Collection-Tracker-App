@@ -5,17 +5,12 @@
   {% if user %}
     <div class='header'>
       <h2>Welcome back, {{ user['username'] }}</h2>
-      <form method='POST' action='{{ url_for('auth.logout') }}'>
-        <button type='submit' id="logout">logout</button>
-      </form>
     </div>
     <div class="vinyls">
       {% if discogs_data %}
         {% for vinyl in discogs_data %}
           <div class='vinyl-container'>
-            <h3>{{vinyl['title']}}</h3>
-            <p>{{vinyl['artist']}}</p>
-            <p>{{vinyl['year']}}</p>
+            <h4>{{vinyl['title']}}</h4>
             <img alt='thumb' src="{{vinyl['thumb']}}" />
           </div>
         {% endfor %}
