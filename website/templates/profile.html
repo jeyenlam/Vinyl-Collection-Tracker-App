@@ -5,9 +5,6 @@
   {% if user %}
     <div class='header'>
       <h2> {{user['username']}}, explore all of your saved collections!</h2>
-      <form method='POST' action='{{ url_for('auth.logout') }}'>
-        <button type='submit' id="logout">logout</button>
-      </form>
     </div>
    
     <div class="vinyls">

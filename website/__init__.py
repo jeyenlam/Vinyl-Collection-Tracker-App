@@ -23,12 +23,14 @@ def create_app():
   app.config['DISCOGS_CONSUMER_SECRET'] = os.getenv('DISCOGS_CONSUMER_SECRET')
   
   # Import blueprints for different parts of the application
-  from .views import views
-  from .auth import auth
+  from .routes.auth import auth
+  from .routes.home import home
+  from .routes.profile import profile
   
   # Register blueprints with the Flask application instance
-  app.register_blueprint(views, url_prefix ='/')
   app.register_blueprint(auth, url_prefix='/')
+  app.register_blueprint(home, url_prefix ='/')
+  app.register_blueprint(profile, url_prefix='/')
   
   # Return the Flask application instance
   return app  

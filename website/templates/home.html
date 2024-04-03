@@ -4,7 +4,14 @@
 
   {% if user %}
     <div class='header'>
-      <h2>Welcome back, {{ user['username'] }}</h2>
+      <h2>Welcome back, <span style="color: #89339c">{{ user['username'] }}</span></h2>
+    </div>
+    <div class="search-bar-con">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search..."></input>
+      </div>
+      
     </div>
     <div class="vinyls">
       {% if discogs_data %}
