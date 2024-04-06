@@ -21,7 +21,6 @@ class OAuthQueries():
       discogs_data = self.user_session.get(url).json()
     except Exception as e:
         print("Error:", e)
-        return random_vinyls_list # Return an empty list if an error occurs
     
     if 'results' in discogs_data and discogs_data['results']:
       random.shuffle(discogs_data['results']) # Shuffle the results to randomize the order
@@ -45,7 +44,6 @@ class OAuthQueries():
       folders = self.user_session.get(url).json()
     except Exception as e:
       print("Error:", e)
-      return collections  # Return an empty dict if an error occurs
 
     for folder in folders['folders']:
       folder_id = folder['id']
@@ -56,7 +54,6 @@ class OAuthQueries():
         response = self.user_session.get(url).json()
       except Exception as e:
         print("Error:", e)
-        continue  # Skip to the next iteration if an error occurs
         
       if len(response['releases']) > 0 and name != 'Uncategorized':
         collections[name] = response['releases']
@@ -64,7 +61,6 @@ class OAuthQueries():
     return collections
   
   def search(self, search_term):
-    print(search_term)
     search_vinyls_list = []
     url = f'https://api.discogs.com/database/search?q={search_term}'
     
