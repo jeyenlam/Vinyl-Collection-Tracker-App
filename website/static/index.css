@@ -62,43 +62,7 @@ ul {
   z-index: 9999;
 }
 
-#logout {
-  position: absolute;
-  list-style: none;
-  top: 6.555%;
-  right: 16.2%; 
-  background-color: #469C33; 
-  color: black; 
-  padding: 12.5px 20px; 
-  border: none;
-  border-radius: 5px;
-  text-decoration: none; 
-  font-size: 16px; 
-  z-index: 9999;
-}
 
-#logout:hover {
-  background-color: #89339c; 
-}
-
-#discog_login {
-  position: absolute;
-  list-style: none;
-  top: 6.5%;
-  right: 3%; 
-  background-color: #469C33; 
-  color: black; 
-  padding: 12px 25px; 
-  border: none;
-  border-radius: 5px;
-  text-decoration: none; 
-  font-size: 18px; 
-  z-index: 9999;
-}
-
-#discog_login:hover {
-  background-color: #89339c; 
-}
 .vinyls {
   display: flex;
   flex-wrap: wrap;
@@ -139,27 +103,41 @@ ul {
   width: 200px; /* Set your desired width */
   margin: 10px; /* Add some margin for spacing */
 }
-
-.search-bar-con{
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 0;
+.search-bar-con {
+  margin: 20px auto; /* Adjust margin as needed */
 }
 
-.search-bar{
+.search-container {
   display: flex;
-  width: 40%;
-  align-items: center;
-  gap: .5rem;
-  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
 }
 
-input{
-  width: 100%;
-  outline: none;
-  border: none;
+.search-form {
+  flex: 1;
+  display: flex;
+}
+
+.search-input {
+  flex: 1;
   padding: 10px;
-  background-color: none;
+}
+
+.search-input:focus {
+  outline-color: #89339c; 
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #469C33;
+  color: black;
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #89339c;
 }

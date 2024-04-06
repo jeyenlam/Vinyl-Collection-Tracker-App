@@ -14,11 +14,11 @@
               <h2>{{ folder_name }}</h2>
               <div class="collection-container">
                 {% for collection in collections %}
-                  <div class='album-container'>
+                  <div class='vinyl-container'>
                     <h3>{{ collection['basic_information']['title'] }}</h3>
                     <p>{{ collection['basic_information']['artists'][0]['name'] }}</p>
-                    <p>{{ collection['basic_information']['year'] }}</p>
                     <img alt='thumb' src="{{ collection['basic_information']['thumb'] }}" />
+                    <p>{{ collection['basic_information']['year'] }}</p>
                   </div>
                 {% endfor %}
               </div>
