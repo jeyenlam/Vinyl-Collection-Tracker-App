@@ -79,7 +79,7 @@ def callback():
     user_info = discogs_oauth.get('https://api.discogs.com/oauth/identity').json() 
     session['user_info'] = user_info
     
-    return redirect(url_for('views.home'))
+    return redirect(url_for('home.display_home'))
 
   except Exception as e:
     current_app.logger.error(f'\nError during access token retrieval: {str(e)}')

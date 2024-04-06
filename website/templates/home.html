@@ -9,7 +9,10 @@
     <div class="search-bar-con">
       <div class="search-bar">
         <i class="fas fa-search"></i>
-      <input type="text" placeholder="Search..."></input>
+        <form id="searchForm" method="POST" action="{{url_for('home.search')}}">
+          <input type="text" id="searchTerm" name="searchTerm" placeholder="Search..."></input>
+          <button type="submit">Search</button>
+        </form>
       </div>
       
     </div>
@@ -18,7 +21,11 @@
         {% for vinyl in discogs_data %}
           <div class='vinyl-container'>
             <h4>{{vinyl['title']}}</h4>
-            <img alt='thumb' src="{{vinyl['thumb']}}" />
+            {% if vinyl['thumb'] %}
+              <img alt='thumb' src="{{ vinyl['thumb'] }}" />
+            {% else %}
+              <img alt='thumb' src="../static/no-image-found.png" />
+            {% endif %}
           </div>
         {% endfor %}
       {% endif %}
@@ -27,5 +34,43 @@
   {% else %}
     <p>You are not logged in.</p>
   {% endif %}
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function(event) { // add event listener to listem to the submit event
+      event.preventDefault(); // prevent the page from reloaded
+      
+      var searchTerm = document.getElementById("searchTerm").value; // get the search term from input field
+      
+      // create a new XMLHttpRequest object and configure it to send a POST request to the /search route
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/search', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send('search_term=' + encodeURIComponent(searchTerm)); // send request
+
+      // handle repsonse
+      xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200) { // if request is complete and status is OK
+          updatePage(xhr.responseText);
+        }
+      };
+
+      function updatePage(updated_discogs_data){
+        var vinylsContainer = document.querySelector(".vinyls");
+        vinylsContainer.innerHTML = ""; // Clear the container first
+        
+        updated_discogs_data.forEach(function (vinyl){
+            var vinylContainer = document.createElement("div");
+            vinylContainer.classList.add("vinyl-container");
+            vinylContainer.innerHTML = "<h4>" + vinyl.title + "</h4>";
+            if (vinyl.thumb) {
+                vinylContainer.innerHTML += "<img alt='thumb' src='" + vinyl.thumb + "' />";
+            } else {
+                vinylContainer.innerHTML += "<img alt='thumb' src='../static/no-image-found.png' />";
+            }
+            vinylsContainer.appendChild(vinylContainer);
+        });
+        
+      }
+    })
+  </script>
 
 {% endblock %}
