@@ -70,7 +70,7 @@
                 vinylContainer.innerHTML += "<img alt='thumb' src='../static/no-image-found.png' />";
             }
 
-            if (vinyl.in_collection) {
+            if (!vinyl.in_collection) {
               vinylContainer.innerHTML += "<h4 class='nav-button' onclick='addCollection(vinyl, user)'>Add to Collection</h4>";
             }
 
