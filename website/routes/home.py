@@ -91,7 +91,7 @@ def remove_from_collection():
     discogs_data = oauth_queries.query_user_collections(user=user_info['username']) #query user collection data from Discogs API
 
     # Render the user profile page template with user's info and collection data
-    return redirect(url_for('profile.index'))
+    return redirect(request.referrer)
 
 
 @home.route('/add-to-collection')
@@ -119,5 +119,5 @@ def add_to_collection():
     discogs_data = oauth_queries.query_user_collections(user=user_info['username']) #query user collection data from Discogs API
 
     # Render the user profile page template with user's info and collection data
-    return redirect(url_for('home.index'))
+    return redirect(request.referrer)
     

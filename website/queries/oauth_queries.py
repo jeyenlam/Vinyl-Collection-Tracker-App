@@ -62,7 +62,7 @@ class OAuthQueries():
   
   def search(self, search_term):
     search_vinyls_list = []
-    url = f'https://api.discogs.com/database/search?q={search_term}'
+    url = f'https://api.discogs.com/database/search?q={search_term}&type=release&format=vinyl&sort=year&sort_order=desc&country=us,uk'
     
     try:
       discogs_data = self.user_session.get(url).json()
