@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{%block content%} 
+{% block content %}
 
   {% if user %}
     <div class='header'>
-      <h2> {{user['username']}}, explore all of your saved collections!</h2>
+      <h2>{{ user['username'] }}, explore all of your saved collections!</h2>
     </div>
-   
+
     <div class="vinyls">
         <div class="folders">
           {% if discogs_data %}
@@ -19,7 +19,9 @@
                     <p>{{ collection['basic_information']['artists'][0]['name'] }}</p>
                     <img alt='thumb' src="{{ collection['basic_information']['thumb'] }}" />
                     <p>{{ collection['basic_information']['year'] }}</p>
+                    <a class="nav-button" href="/remove-from-collection?folder={{collection['folder_id']}}&release={{collection['id']}}&instance={{collection['instance_id']}}">Remove From Collection</a>
                   </div>
+
                 {% endfor %}
               </div>
             {% endfor %}

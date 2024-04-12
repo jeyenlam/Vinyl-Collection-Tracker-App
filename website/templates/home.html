@@ -25,6 +25,9 @@
             {% else %}
               <img alt='thumb' src="../static/no-image-found.png" />
             {% endif %}
+            {% if vinyl['in_collection'] != true %}
+            <a class="nav-button" href="/add-to-collection?folder=1&release={{vinyl['id']}}">Add to Collection</a>
+            {% endif %}
           </div>
         {% endfor %}
       {% endif %}
@@ -66,6 +69,11 @@
             } else {
                 vinylContainer.innerHTML += "<img alt='thumb' src='../static/no-image-found.png' />";
             }
+
+            if (vinyl.in_collection) {
+              vinylContainer.innerHTML += "<h4 class='nav-button' onclick='addCollection(vinyl, user)'>Add to Collection</h4>";
+            }
+
             vinylsContainer.appendChild(vinylContainer);
         });
         

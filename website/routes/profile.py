@@ -21,7 +21,5 @@ def index():
 
     discogs_data = oauth_queries.query_user_collections(user=user_info['username']) #query user collection data from Discogs API
 
-    # current_app.logger.info(discogs_data)
-
     # Render the user profile page template with user's info and collection data
     return render_template('profile.html', user=user_info, discogs_data=discogs_data)

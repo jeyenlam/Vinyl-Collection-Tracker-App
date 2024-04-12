@@ -75,4 +75,31 @@ class OAuthQueries():
     print(search_vinyls_list)
     
     return search_vinyls_list
-    
+
+
+  def remove_collection(self, user, collection):
+    folder_id = collection['folder_id']
+    release_id = collection['release_id']
+    instance_id = collection['instance_id']
+    print("MAKING API CALL")
+    url = f'https://api.discogs.com/users/{user}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}'
+    print(url)
+    try:
+      self.user_session.delete(url).json()
+    except Exception as e:
+        print("Error:", e)
+
+    return "SUCCESS"
+
+  def add_collection(self, user, collection):
+    folder_id = collection['folder_id']
+    release_id = collection['release_id']
+    print("MAKING API CALL")
+    url = f'https://api.discogs.com/users/{user}/collection/folders/{folder_id}/releases/{release_id}'
+    print(url)
+    try:
+      self.user_session.post(url).json()
+    except Exception as e:
+        print("Error:", e)
+
+    return "SUCCESS"

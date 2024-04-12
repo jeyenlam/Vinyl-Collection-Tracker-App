@@ -2,7 +2,8 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, session, url_for
 from ..queries.oauth_queries import OAuthQueries
 from ..utils.verify_user_session import verify_user_session
-from urllib.parse import parse_qs
+from urllib.parse import urlparse, parse_qs
+import json
 
 # Create a Blueprint named 'home'
 home = Blueprint('home', __name__)
@@ -62,3 +63,61 @@ def search():
     
     # return updated discog_data
     return discogs_data
+
+
+@home.route('/remove-from-collection')
+def remove_from_collection():
+    # Extract the query string from the URL
+    query_string = request.query_string.decode("utf-8")
+    
+    # Parse the query string to get the collection data
+    query_params = parse_qs(query_string)
+
+    collection_data = {
+        "folder_id": query_params.get("folder", [""])[0],
+        "release_id": query_params.get("release", [""])[0],
+        "instance_id": query_params.get("instance", [""])[0]
+    }
+    print(collection_data)
+
+    user_session = verify_user_session()  # return user session if verified, else redirect to login
+    user_info = session.get('user_info') #get user info for rendering pages
+    oauth_queries = OAuthQueries(user_session)  # initialize OAuthQueries
+
+    response = oauth_queries.remove_collection(user_info['username'], collection_data)  # query search vinyls data from Discogs API
+
+    print(response)
+
+    discogs_data = oauth_queries.query_user_collections(user=user_info['username']) #query user collection data from Discogs API
+
+    # Render the user profile page template with user's info and collection data
+    return redirect(url_for('profile.index'))
+
+
+@home.route('/add-to-collection')
+def add_to_collection():
+    # Extract the query string from the URL
+    query_string = request.query_string.decode("utf-8")
+    
+    # Parse the query string to get the collection data
+    query_params = parse_qs(query_string)
+
+    collection_data = {
+        "folder_id": query_params.get("folder", [""])[0],
+        "release_id": query_params.get("release", [""])[0]
+    }
+    print(collection_data)
+
+    user_session = verify_user_session()  # return user session if verified, else redirect to login
+    user_info = session.get('user_info') #get user info for rendering pages
+    oauth_queries = OAuthQueries(user_session)  # initialize OAuthQueries
+
+    response = oauth_queries.add_collection(user_info['username'], collection_data)  # query search vinyls data from Discogs API
+
+    print(response)
+
+    discogs_data = oauth_queries.query_user_collections(user=user_info['username']) #query user collection data from Discogs API
+
+    # Render the user profile page template with user's info and collection data
+    return redirect(url_for('home.index'))
+    
