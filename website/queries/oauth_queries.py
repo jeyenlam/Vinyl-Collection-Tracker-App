@@ -70,7 +70,7 @@ class OAuthQueries():
         print("Error:", e)
         
     if 'results' in discogs_data and discogs_data['results']:
-      search_vinyls_list = discogs_data['results'][:20] # Take the first 20 items from the shuffled results
+      search_vinyls_list = discogs_data['results'][:40] # Take the first 20 items from the shuffled results
     
     print(search_vinyls_list)
     
