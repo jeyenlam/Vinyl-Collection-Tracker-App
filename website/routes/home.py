@@ -47,13 +47,14 @@ def display_home():
 
 @home.route('/search', methods=["POST"])
 def search():
+    """
+    Handle search requests from the user.
+
+    Returns:
+        json: JSON response containing the search results.
+    """
     request_data = request.form.get("search_term") # extract request data from POST request body
     print(request_data)
-    # decoded_request_data = request_data.decode('utf-8') # decode data
-    # parsed_data = parse_qs(decoded_request_data) # parse data
-
-    # search_term = parsed_data.get('search_term', [None])[0]
-    # print(search_term)
     
     user_session = verify_user_session() #return user session if verified, else redirect to login
     oauth_queries = OAuthQueries(user_session) #initialize OAuthQueries
@@ -67,6 +68,12 @@ def search():
 
 @home.route('/remove-from-collection')
 def remove_from_collection():
+    """
+    Remove a vinyl from the user's collection.
+
+    Returns:
+        Redirects to the previous page.
+    """
     # Extract the query string from the URL
     query_string = request.query_string.decode("utf-8")
     
@@ -96,6 +103,12 @@ def remove_from_collection():
 
 @home.route('/add-to-collection')
 def add_to_collection():
+    """
+    Add a vinyl to the user's collection.
+
+    Returns:
+        Redirects to the previous page.
+    """
     # Extract the query string from the URL
     query_string = request.query_string.decode("utf-8")
     
