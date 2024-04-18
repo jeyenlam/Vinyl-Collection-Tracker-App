@@ -1,7 +1,7 @@
 # Import necessary modules and libraries
 from flask import Blueprint, render_template, session
-from ..queries.oauth_queries import OAuthQueries
-from ..utils.verify_user_session import verify_user_session
+from website.queries.oauth_queries import OAuthQueries
+from website.utils.verify_user_session import verify_user_session
 
 # Create a Blueprint named 'home'
 profile = Blueprint('profile', __name__)

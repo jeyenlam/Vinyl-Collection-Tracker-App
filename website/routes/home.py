@@ -1,7 +1,7 @@
 # Import necessary modules and libraries
 from flask import Blueprint, jsonify, redirect, render_template, request, session, url_for
-from ..queries.oauth_queries import OAuthQueries
-from ..utils.verify_user_session import verify_user_session
+from website.queries.oauth_queries import OAuthQueries
+from website.utils.verify_user_session import verify_user_session
 from urllib.parse import urlparse, parse_qs
 import json
 
