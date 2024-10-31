@@ -25,4 +25,11 @@ We conducted testing of API endpoints and their integration with the frontend in
 <li>OAuth</li>
 
 <h2>Demo</h2>
-tbu...
+<div>
+    <a href="https://www.loom.com/share/b9b47913ab844dbb9904d347a92e0c4f">
+      <p>Vinyl Collection Tracker - Demo Video</p>
+    </a>
+    <a href="https://www.loom.com/share/b9b47913ab844dbb9904d347a92e0c4f">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/b9b47913ab844dbb9904d347a92e0c4f-5068946f5dbb1454-full-play.gif">
+    </a>
+</div>
